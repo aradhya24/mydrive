@@ -11,7 +11,7 @@ import {
     addDoc,
     onSnapshot
 } from 'firebase/firestore';
-import { Encrypt, Decrypt } from '../util/aes';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -76,7 +76,7 @@ export default function Drive({
                     setProgress(null)
                     addDoc(collectionRef, {
                         userEmail: userEmail,
-                        fileName:(Decrypt(event.target.files[0].name)),
+                        fileName:(event.target.files[0].name),
                         downloadURL: downloadURL
                     })
                     .then(() => {
